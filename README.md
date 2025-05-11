@@ -1,6 +1,6 @@
 # SZTE - Programrendszerek fejlesztése gyakorlat
 
-## Fórum Projekt
+## Fórum Projekt 
 
 ### Készítette:
 **Mandic Blanka**
