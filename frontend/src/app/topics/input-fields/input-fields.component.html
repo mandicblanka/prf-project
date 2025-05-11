@@ -1,0 +1,11 @@
+<div class="topic-container">
+    <div class="create-topic-text">
+        <h2>Create new topic:</h2>
+    </div>
+    <form class="topic-form" (ngSubmit)="CreateTopic()">
+        <input [(ngModel)]="title" name="title" type="text" placeholder="Title of topic">
+        <div class="buttons">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>

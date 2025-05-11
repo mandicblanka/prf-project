@@ -1,0 +1,16 @@
+<div class="navbar">
+    <div class="left-side">
+        <span>Girly Forum ✿</span>
+    </div>
+    <div class="right-side">
+        <div class="buttons">
+            <button (click)="navigate('/topics')">Main page</button>
+            <button (click)="navigate('/my-topics')" *ngIf="isAuthenticated">My Topics</button>
+            <button (click)="navigate('/user-management')" *ngIf="isAuthenticated && isAdmin">User Management</button>
+
+            <button (click)="navigate('/login')" *ngIf="!isAuthenticated">Sign in</button>
+            <button (click)="navigate('/signup')" *ngIf="!isAuthenticated">Sign up</button>
+            <button (click)="logout()" *ngIf="isAuthenticated" type="reset">Sign out</button>
+        </div>
+    </div>
+</div>

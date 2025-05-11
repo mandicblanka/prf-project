@@ -1,0 +1,122 @@
+table {
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #bbbbbb;
+  color: #333;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.table-container {
+  margin: 100px 20px;
+}
+
+.userLoggedIn {
+  margin: 20px !important;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  width: 97%;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(237, 100, 100);
+  width: 80%;
+  max-width: 200px;
+  color: white;
+  padding: 10px;
+  margin: auto;
+}
+
+button:hover {
+  background-color: rgb(117, 54, 54);
+}
+
+.links {
+  animation: gradient-out .3s forwards;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+    animation: gradient-in .3s forwards;
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.edit-button {
+  background-color: #FFC1CC;
+}
+
+.edit-button:hover {
+  background-color: #FF9AA2;
+}
+
+.check-button {
+  background-color: #FF69B4;
+}
+
+.check-button:hover {
+  background-color: #FF9AA2;
+}
+
+.disable {
+  background-color: #7d7d7d;
+  &:hover {
+    background-color: #4a4a4a;
+  }
+}
+
+h1 {
+  text-align: center;
+}
+
+@keyframes gradient-in {
+  0% {
+    color: black;
+  }
+  100% {
+    background: #FF9AA2;
+    color: white;
+  }
+}
+
+@keyframes gradient-out {
+  0% {
+    background: #FF9AA2;
+    color: white;
+  }
+  100% {
+    color: black;
+  }
+}

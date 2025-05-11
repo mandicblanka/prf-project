@@ -1,0 +1,35 @@
+<div class="my-topics-container">
+    <div class="table-container" *ngIf="topics && topics.length; else noUsersTemplate">
+        <h1>My Topics</h1>
+        <table>
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th width="15%">Date</th>
+                <th width="10%">Options</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let topic of topics">
+                <td *ngIf="!isEditMode">{{topic.title}}</td>
+                <td *ngIf="isEditMode && topic._id !== selectedTopicToEdit">{{topic.title}}</td>
+                <td *ngIf="isEditMode && topic._id === selectedTopicToEdit"><input [(ngModel)]="editedTitle" name="editedTitle" type="text"></td>
+                <td style="text-align: center;">{{ topic.timestamp | date: 'yyyy.MM.dd HH:mm' }}</td>
+                <td class="modification-buttons">
+                    <button class="buttons" *ngIf="!isEditMode" (click)="editModeToggle(topic._id)" type="reset"><mat-icon fontIcon="edit"></mat-icon></button>
+                    <button class="buttons" *ngIf="!isEditMode" (click)="deleteTopic(topic._id)"><mat-icon fontIcon="delete"></mat-icon></button>
+                    <button class="buttons disable" *ngIf="isEditMode && topic._id !== selectedTopicToEdit" (click)="editModeOff()" type="reset"><mat-icon fontIcon="edit"></mat-icon></button>
+                    <button class="buttons disable" *ngIf="isEditMode && topic._id !== selectedTopicToEdit" (click)="editModeOff()"><mat-icon fontIcon="delete"></mat-icon></button>
+                    <button class="buttons check" *ngIf="isEditMode && topic._id === selectedTopicToEdit" (click)="editTopic(topic._id)" type="reset"><mat-icon fontIcon="check"></mat-icon></button>
+                    <button class="buttons" *ngIf="isEditMode && topic._id === selectedTopicToEdit" (click)="editModeToggle(topic._id)"><mat-icon fontIcon="cancel"></mat-icon></button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<ng-template #noUsersTemplate>
+    <div class="no-data">
+        <h1>No topics available.</h1>
+    </div>
+</ng-template>

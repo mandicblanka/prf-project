@@ -1,0 +1,26 @@
+/*body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8vh;
+}*/
+
+app-root {
+  width: 100%;
+  height: 100%;
+}
+
+html, body { margin: 0; padding: 0; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+app-login {
+  overflow: hidden;
+}
+
+.no-data {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-size: 1.5em;
+}

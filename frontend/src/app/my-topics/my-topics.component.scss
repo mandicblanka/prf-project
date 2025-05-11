@@ -1,0 +1,92 @@
+table {
+  margin: auto;
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 20px;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #bbbbbb;
+  color: #333;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.table-container {
+  margin: 20px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(237, 100, 100);
+  width: 80%;
+  max-width: 200px;
+  color: white;
+  padding: 10px;
+  margin: auto;
+}
+
+button:hover {
+  background-color: rgb(117, 54, 54);
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  width: 97%;
+}
+
+.modification-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+button[type="reset"] {
+  background-color: #FFC1CC;
+}
+
+button[type="reset"]:hover {
+  background-color: #FF9AA2;
+}
+
+.check {
+  background-color: #FF69B4 !important;
+}
+
+.check:hover {
+  background-color: #FF9AA2 !important;
+}
+
+.my-topics-container {
+  margin: 80px;
+}
+
+.disable {
+  background-color: #7d7d7d !important;
+  &:hover {
+    background-color: #4a4a4a !important;
+  }
+}

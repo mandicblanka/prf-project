@@ -1,0 +1,38 @@
+<app-input-fields *ngIf="isAuthenticated" (topic)="recieveTopic($event)"></app-input-fields>
+<div [ngClass]="{'userLoggedIn' : isAuthenticated}" class="table-container" *ngIf="topics && topics.length; else noUsersTemplate">
+    <h1>Topics</h1>
+    <table>
+        <thead>
+        <tr>
+            <th style="width: 15%;">Author</th>
+            <th>Title</th>
+            <th style="width: 10%;">Date</th>
+            <th style="width: 10%;" *ngIf="isAdmin">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let topic of topics">
+            <td>{{topic.author}}</td>
+            <td *ngIf="!isEditMode" class="links" (click)="navigate(topic._id)"><a>{{topic.title}}</a></td>
+            <td *ngIf="isEditMode && topic._id !== selectedTopicToEdit">{{topic.title}}</td>
+            <td *ngIf="isEditMode && topic._id === selectedTopicToEdit"><input [(ngModel)]="editedTitle" name="editedTitle" type="text"></td>
+            <td style="text-align: center;">{{ topic.timestamp | date: 'yyyy.MM.dd HH:mm' }}</td>
+            <td *ngIf="isAdmin">
+                <div class="actions">
+                    <button *ngIf="!isEditMode" (click)="editModeToggle(topic._id)" class="buttons edit-button"><mat-icon fontIcon="edit"></mat-icon></button>
+                    <button *ngIf="!isEditMode" (click)="deleteTopic(topic._id)" class="buttons"><mat-icon fontIcon="delete"></mat-icon></button>
+                    <button *ngIf="isEditMode && topic._id !== selectedTopicToEdit" (click)="editModeOff()" class="buttons edit-button disable"><mat-icon fontIcon="edit"></mat-icon></button>
+                    <button *ngIf="isEditMode && topic._id !== selectedTopicToEdit" (click)="editModeOff()" class="buttons disable"><mat-icon fontIcon="delete"></mat-icon></button>
+                    <button *ngIf="isEditMode && topic._id === selectedTopicToEdit" (click)="editTopic(topic._id)" class="buttons check-button"><mat-icon fontIcon="check"></mat-icon></button>
+                    <button *ngIf="isEditMode && topic._id === selectedTopicToEdit" (click)="editModeToggle(topic._id)" class="buttons"><mat-icon fontIcon="cancel"></mat-icon></button>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<ng-template #noUsersTemplate>
+    <div class="table-container no-data">
+        <p>No topics available.</p>
+    </div>
+</ng-template>
